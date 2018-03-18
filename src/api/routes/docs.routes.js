@@ -1,10 +1,9 @@
 var swaggerUi = require('swagger-ui-express')
 var YAML = require('yamljs')
 
-const swaggerDocument = YAML.load('./api/swagger/swagger.yaml')
+const swaggerDocument = YAML.load('./src/api/swagger/swagger.yaml')
 
 module.exports = function (prefix, app) {
-
     app.use('/', swaggerUi.serve)
     app.get(
         `/${prefix}/docs`,
