@@ -3,14 +3,13 @@ info:
   version: "0.0.1"
   title: Hello World App
 # during dev, should point to your local machine
-host: localhost:10010
+host: localhost:3000
 # basePath prefixes all resource paths 
-basePath: /
+basePath: /api
 # 
 schemes:
   # tip: remove http to make production-grade
   - http
-  - https
 # format of bodies a client can send (Content-Type)
 consumes:
   - application/json
@@ -19,8 +18,6 @@ produces:
   - application/json
 paths:
   /hello:
-    # binds a127 app logic to a route
-    x-swagger-router-controller: hello_world
     get:
       description: Returns 'Hello' to the caller
       # used as the method name of the controller
@@ -36,7 +33,7 @@ paths:
           description: Success
           schema:
             # a pointer to a definition
-            $ref: "#/definitions/HelloWorldResponse"
+            $ref: "#/definitions/SuccessResponse"
         # responses may fall through to errors
         default:
           description: Error
@@ -46,15 +43,15 @@ paths:
     x-swagger-pipe: swagger_raw
 # complex objects have schema definitions
 definitions:
-  HelloWorldResponse:
-    required:
-      - message
+  SuccessResponse:
     properties:
+      data:
+        type: object
       message:
         type: string
   ErrorResponse:
-    required:
-      - message
     properties:
+      data:
+        type: object
       message:
         type: string

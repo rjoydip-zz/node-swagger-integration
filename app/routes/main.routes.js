@@ -6,5 +6,4 @@ module.exports = function(app) {
         res.render('index', { title: 'Express' })
     })
 
-    console.log('a')
 }
