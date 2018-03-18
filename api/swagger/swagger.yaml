@@ -1,7 +1,7 @@
 swagger: "2.0"
 info:
   version: "0.0.1"
-  title: Hello World App
+  title: Node.js Swagger Integration
 # during dev, should point to your local machine
 host: localhost:3000
 # basePath prefixes all resource paths 

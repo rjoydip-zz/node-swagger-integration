@@ -17,9 +17,10 @@ app.set('view engine', 'jade')
  */
 
 var port = normalizePort(process.env.PORT || '3000');
-app.set('port', port);
-
+app.set('port', port)
 app.set('root', __dirname)
+
+require('./app/config')(app)
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
@@ -30,10 +31,8 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
 
-require('./app/config')(app)
-require('./app/routes/index')(app)
-
-app.use('/api', require('./api'))
+require('./app/routes')(app)
+require('./api/routes')('api', app)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

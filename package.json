@@ -19,7 +19,10 @@
     "node-dir": "^0.1.17",
     "serve-favicon": "~2.4.5",
     "slash": "^1.0.0",
-    "swagger-express-mw": "^0.1.0"
+    "swagger-express-mw": "^0.1.0",
+    "swagger-ui-dist": "^3.13.0",
+    "swagger-ui-express": "^2.0.15",
+    "yamljs": "^0.3.0"
   },
   "devDependencies": {
     "should": "^7.1.0",
